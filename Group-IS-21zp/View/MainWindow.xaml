@@ -1,0 +1,231 @@
+﻿<Window x:Class="Group_IS_21zp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group_IS_21zp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1000" Background="#272822"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <Style x:Key="TabCommon" >
+            <Setter Property="TabItem.Background" Value="#272822"/>
+            <!--<Setter Property="TabItem.Width" Value="100px"/>-->
+        </Style>
+        <Style x:Key="Title" >
+            <Setter Property="TextBlock.FontSize" Value="24"/>
+            <Setter Property="TextBlock.Margin" Value="30,20,0,10"/>
+            <Setter Property="TextBlock.Width" Value="300"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextBlock.Foreground" Value="Azure"/>
+            <Setter Property="TextBlock.FontWeight" Value="Regular"/>
+        </Style>
+        <Style x:Key="Button" >
+            <Setter Property="Button.FontSize" Value="14"/>
+            <Setter Property="Button.Width" Value="60"/>
+            <Setter Property="Button.Height" Value="25"/>
+            <Setter Property="Button.Margin" Value="30,15,0,0" />
+        </Style>
+        <Style x:Key="ButtonLargeOffset" >
+            <Setter Property="Button.FontSize" Value="14"/>
+            <Setter Property="Button.Width" Value="60"/>
+            <Setter Property="Button.Height" Value="25"/>
+            <Setter Property="Button.Margin" Value="30,30,0,0" />
+        </Style>
+    </Window.Resources>
+    <TabControl Style="{StaticResource TabCommon}" KeyDown="ShowAbout">
+        <TabItem Header="Students" Width="100" Height="30">
+            <StackPanel x:Name="ParentElem" Orientation="Vertical" >
+                <StackPanel Visibility="{Binding StudentListView}">
+                    <!-- LIST VIEW -->
+                    <TextBlock Style="{StaticResource Title}">Студенти</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <ListBox HorizontalAlignment="Left" SelectionMode="Extended" Width="737" Height="535" Margin="30,0"
+        ItemsSource="{Binding Students, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="true"  SelectedItem="{Binding SelectedStudentItem, Mode=OneWayToSource}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Id}" Width="30" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding FirstName}" Width="140" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding PatronymicName}" Width="140" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding LastName}" Width="140" Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Vertical">
+                            <Button Name="AddBtn" Style="{StaticResource Button}" Command="{Binding AddStudentCmd}">Add</Button>
+                            <Button Name="DeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteStudentCmd}">Delete</Button>
+                            <Button Name="EditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateStudentCmd}">Edit</Button>
+                            <Button Name="FindBtn" Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="40px" Visibility="{Binding EditStudentView}">
+                    <!-- EDIT VIEW -->
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Прізвище"/>
+                    <TextBox x:Name="StudentLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="StudentLastName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Ім'я"/>
+                    <TextBox x:Name="StudentFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="StudentFirstName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="По-батькові"/>
+                    <TextBox x:Name="StudentPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="StudentPatronymicName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="60" Height="20" Content="Cancel" HorizontalAlignment="Right"  Command="{Binding CancelActionCmd}" Margin="490,30,20,0"/>
+                        <Button Width="60" Height="20" Content="OK" HorizontalAlignment="Right" Command="{Binding OkActionCmd}" Margin="0,30,424,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Teachers" Width="100" Height="30">
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Visibility="{Binding TeacherListView}">
+                    <!-- TEACHER LIST VIEW -->
+                    <TextBlock Style="{StaticResource Title}">Викладачі</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <ListBox HorizontalAlignment="Left" SelectionMode="Extended" Width="737" Height="535" Margin="30,0"
+        ItemsSource="{Binding Teachers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="true"  SelectedItem="{Binding SelectedTeacherItem, Mode=OneWayToSource}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Id}" Width="30" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding FirstName}" Width="140" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding PatronymicName}" Width="140" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding LastName}" Width="140" Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Vertical">
+                            <Button Name="TeacherAddBtn" Style="{StaticResource Button}" Command="{Binding AddTeacherCmd}">Add</Button>
+                            <Button Name="TeacherDeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteTeacherCmd}">Delete</Button>
+                            <Button Name="TeacherEditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateTeacherCmd}">Edit</Button>
+                            <Button  Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="40px" Visibility="{Binding EditTeacherView}">
+                    <!-- TEACHER EDIT VIEW -->
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Прізвище"/>
+                    <TextBox x:Name="TeacherLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="TeacherLastName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Ім'я"/>
+                    <TextBox x:Name="TeacherFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="TeacherFirstName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="По-батькові"/>
+                    <TextBox x:Name="TeacherPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="TeacherPatronymicName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="60" Height="20" Content="Cancel" HorizontalAlignment="Right"  Command="{Binding CancelActionCmd}" Margin="490,30,20,0"/>
+                        <Button Width="60" Height="20" Content="OK" HorizontalAlignment="Right" Command="{Binding OkActionCmd}" Margin="0,30,424,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        
+        
+        <TabItem Header="Subjects" Width="100" Height="30">
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Visibility="{Binding SubjectListView}">
+                    <!-- SUBJECT LIST VIEW -->
+                    <TextBlock Style="{StaticResource Title}">Дисципліни</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <ListBox HorizontalAlignment="Left" SelectionMode="Extended" Width="737" Height="535" Margin="30,0"
+        ItemsSource="{Binding Subjects, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="true"  SelectedItem="{Binding SelectedSubjectItem, Mode=OneWayToSource}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Id}" Width="30" Margin="0,0,0,10"/>
+                                        <TextBlock Text="{Binding Name}" Width="400" Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Vertical">
+                            <Button Name="SubjectAddBtn" Style="{StaticResource Button}" Command="{Binding AddSubjectCmd}">Add</Button>
+                            <Button Name="SubjectDeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteSubjectCmd}">Delete</Button>
+                            <Button Name="SubjectEditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateSubjectCmd}">Edit</Button>
+                            <Button  Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="40px" Visibility="{Binding EditSubjectView}">
+                    <!-- SUBJECT EDIT VIEW -->
+                    <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Назва предмету"/>
+                    <TextBox x:Name="SubjectNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                        <TextBox.Text>
+                            <Binding Path="SubjectName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="60" Height="20" Content="Cancel" HorizontalAlignment="Right"  Command="{Binding CancelActionCmd}" Margin="490,30,20,0"/>
+                        <Button Width="60" Height="20" Content="OK" HorizontalAlignment="Right" Command="{Binding OkActionCmd}" Margin="0,30,424,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            
+        </TabItem>
+    </TabControl>
+
+
+
+
+
+</Window>
