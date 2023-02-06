@@ -8,6 +8,7 @@ using Group_IS_21zp.Repository;
 using System.Windows.Input;
 using Group_IS_21zp.ViewModel;
 using Group_IS_21zp.View;
+using System.IO;
 
 namespace Group_IS_21zp
 {
@@ -18,6 +19,7 @@ namespace Group_IS_21zp
         public MainWindow()
         {
             InitializeComponent();
+            CheckIfStorageExists();
             DataContext = new MainWinViewModel();
             MessengerStatic.ActivatedStudentEditMode += SetFocusStudentEditMode;
             MessengerStatic.ActivatedTeacherEditMode += SetFocusTeacherEditMode;
@@ -52,6 +54,19 @@ namespace Group_IS_21zp
             {
                 AboutWindow aboutWin = new AboutWindow();
                 aboutWin.Show();
+            }
+        }
+
+        public void CheckIfStorageExists()
+        {
+            const string STORAGE_PATH = "data.xlsx";
+            if (!File.Exists(STORAGE_PATH))
+            {
+                MessageBoxResult result = MessageBox.Show("Database missing! Please check file data.xlsx", "Group-IS-21zp", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (result == MessageBoxResult.OK)
+                {
+                    this.Close();
+                }
             }
         }
     }

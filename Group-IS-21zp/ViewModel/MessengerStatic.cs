@@ -30,5 +30,12 @@ namespace Group_IS_21zp.ViewModel
         {
             ActivatedSubjectEditMode?.Invoke(data);
         }
+
+        public static event Action<object> StorageNotFound;
+
+        public static void NotifyStorageMssing(object data)
+        {
+            StorageNotFound?.Invoke(data);
+        }
     }
 }
