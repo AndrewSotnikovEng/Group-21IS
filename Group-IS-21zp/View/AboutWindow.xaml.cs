@@ -24,5 +24,13 @@ namespace Group_IS_21zp.View
         {
             InitializeComponent();
         }
+
+        private void Quit(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Group_IS_21zp.View"
         mc:Ignorable="d"
         Title="About" Height="313.213" Width="870.562" Background="#272822"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Quit">
     <Window.Resources>
         <Style x:Key="TextBlock" >
             <Setter Property="TextBlock.FontSize" Value="14"/>
