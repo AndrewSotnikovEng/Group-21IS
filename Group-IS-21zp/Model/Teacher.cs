@@ -21,5 +21,10 @@ namespace Group_IS_21zp.Model
             LastName = lastName;
             PatronymicName = patronymicName;
         }
+
+        public override string ToString()
+        {
+            return String.Format("{0, 20} {1, 20} {2, 20} {3, 20}", Id, FirstName, PatronymicName, LastName);
+        }
     }
 }
