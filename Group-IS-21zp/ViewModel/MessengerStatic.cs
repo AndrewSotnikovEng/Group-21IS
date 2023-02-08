@@ -37,5 +37,28 @@ namespace Group_IS_21zp.ViewModel
         {
             StorageNotFound?.Invoke(data);
         }
+
+
+        public static event Action<object> FindWindowShowed;
+
+        public static void NotifySearchWindowShowing(object data)
+        {
+            FindWindowShowed?.Invoke(data);
+        }
+
+        public static event Action<object> SearchElementRequested;
+
+        public static void NotifyFindElementRequesting(object data)
+        {
+            SearchElementRequested?.Invoke(data);
+        }
+
+        public static event Action<object> SearchElementsResponded;
+
+        public static void NotifyFindElementsResponding(object data)
+        {
+            SearchElementsResponded?.Invoke(data);
+        }
+
     }
 }

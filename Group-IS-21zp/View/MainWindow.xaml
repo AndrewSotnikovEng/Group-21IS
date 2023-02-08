@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1000" Background="#272822"
         WindowStartupLocation="CenterScreen"
+        KeyDown="ProcessKeys"
         >
     <Window.Resources>
         <Style x:Key="TabCommon" >
@@ -34,7 +35,7 @@
             <Setter Property="Button.Margin" Value="30,30,0,0" />
         </Style>
     </Window.Resources>
-    <TabControl Style="{StaticResource TabCommon}" KeyDown="ShowAbout">
+    <TabControl Style="{StaticResource TabCommon}">
         <TabItem Header="Students" Width="100" Height="30">
             <StackPanel x:Name="ParentElem" Orientation="Vertical" >
                 <StackPanel Visibility="{Binding StudentListView}">
@@ -61,7 +62,7 @@
                             <Button Name="AddBtn" Style="{StaticResource Button}" Command="{Binding AddStudentCmd}">Add</Button>
                             <Button Name="DeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteStudentCmd}">Delete</Button>
                             <Button Name="EditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateStudentCmd}">Edit</Button>
-                            <Button Name="FindBtn" Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                            <Button Name="FindBtn"  Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -130,7 +131,7 @@
                             <Button Name="TeacherAddBtn" Style="{StaticResource Button}" Command="{Binding AddTeacherCmd}">Add</Button>
                             <Button Name="TeacherDeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteTeacherCmd}">Delete</Button>
                             <Button Name="TeacherEditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateTeacherCmd}">Edit</Button>
-                            <Button  Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                            <Button  Style="{StaticResource ButtonLargeOffset}"   Command="{Binding FindCmd}">Find</Button>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -198,7 +199,7 @@
                             <Button Name="SubjectAddBtn" Style="{StaticResource Button}" Command="{Binding AddSubjectCmd}">Add</Button>
                             <Button Name="SubjectDeleteBtn" Style="{StaticResource Button}" Command="{Binding DeleteSubjectCmd}">Delete</Button>
                             <Button Name="SubjectEditBtn" Style="{StaticResource Button}"  Command="{Binding UpdateSubjectCmd}">Edit</Button>
-                            <Button  Style="{StaticResource ButtonLargeOffset}"  Command="{Binding FindCmd}">Find</Button>
+                            <Button  Style="{StaticResource ButtonLargeOffset}"   Command="{Binding FindCmd}">Find</Button>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

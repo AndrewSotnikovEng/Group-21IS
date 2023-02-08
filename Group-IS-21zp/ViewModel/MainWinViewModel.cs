@@ -185,6 +185,7 @@ namespace Group_IS_21zp.ViewModels
             AddStudentCmd = new RelayCommand(o => { AddStudent(); }, AddStudentCanExecute);
             DeleteStudentCmd = new RelayCommand(o => { DeleteStudent(); }, DeleteStudentCanExecute);
             UpdateStudentCmd = new RelayCommand(o => { UpdateStudent(); }, UpdateStudentCanExecute);
+            FindCmd = new RelayCommand(o => { FindElement(); }, FindElementCanExecute);
 
 
             //TEACHERS
@@ -198,6 +199,7 @@ namespace Group_IS_21zp.ViewModels
             AddTeacherCmd = new RelayCommand(o => { AddTeacher(); }, AddTeacherCanExecute);
             DeleteTeacherCmd = new RelayCommand(o => { DeleteTeacher(); }, DeleteTeacherCanExecute);
             UpdateTeacherCmd = new RelayCommand(o => { UpdateTeacher(); }, UpdateTeacherCanExecute);
+            //FindTeacherCmd = new RelayCommand(o => { FindElement(); }, FindElementCanExecute);
 
 
             OkActionCmd = new RelayCommand(o => { OkAction(); }, OkActionCanExecute);
@@ -214,8 +216,55 @@ namespace Group_IS_21zp.ViewModels
             AddSubjectCmd = new RelayCommand(o => { AddSubject(); }, AddSubjectCanExecute);
             DeleteSubjectCmd = new RelayCommand(o => { DeleteSubject(); }, DeleteSubjectCanExecute);
             UpdateSubjectCmd = new RelayCommand(o => { UpdateSubject(); }, UpdateSubjectCanExecute);
+            //FindSubjectCmd = new RelayCommand(o => { FindElement(); }, FindElementCanExecute);
+            MessengerStatic.SearchElementRequested += ProcessFindElementRequest;
 
 
+        }
+
+        private void ProcessFindElementRequest(object obj)
+        {
+            List<SearchResult> results = new List<SearchResult>();
+            //looking for students
+            //Console.WriteLine("Students: \n----------------------");
+            foreach (Student item in Students)
+            {
+                if (item.LastName.ToLower().Contains(obj.ToString().ToLower()))
+                {
+                    SearchResult result = new SearchResult(item.Id,
+                        $"{item.FirstName} {item.PatronymicName} {item.LastName}",
+                        SearchType.StudentElementType);
+                    results.Add(result);
+                    //Console.WriteLine(result);
+                }
+            }
+            //looking for teachers
+            //Console.WriteLine("Teachers: \n----------------------");
+            foreach (Teacher item in Teachers)
+            {
+                if (item.LastName.ToLower().Contains(obj.ToString().ToLower()))
+                {
+                    SearchResult result = new SearchResult(item.Id,
+                        $"{item.FirstName} {item.PatronymicName} {item.LastName}",
+                        SearchType.TeacherElementType);
+                    results.Add(result);
+                    //Console.WriteLine(result);
+                }
+                //looking for subjects
+
+            }
+
+            MessengerStatic.NotifyFindElementsResponding(results);
+        }
+
+        private bool FindElementCanExecute(object arg)
+        {
+            return true;
+        }
+
+        private void FindElement()
+        {
+            MessengerStatic.NotifySearchWindowShowing(null);
         }
 
         private void UpdateSubject()
@@ -557,15 +606,18 @@ namespace Group_IS_21zp.ViewModels
         public RelayCommand AddStudentCmd { get; private set; }
         public RelayCommand DeleteStudentCmd { get; private set; }
         public RelayCommand UpdateStudentCmd { get; private set; }
+        public RelayCommand FindCmd { get; private set; }
 
         public RelayCommand AddTeacherCmd { get; private set; }
         public RelayCommand DeleteTeacherCmd { get; private set; }
         public RelayCommand UpdateTeacherCmd { get; private set; }
+        //public RelayCommand FindTeacherCmd { get; private set; }
 
 
         public RelayCommand AddSubjectCmd { get; private set; }
         public RelayCommand DeleteSubjectCmd { get; private set; }
         public RelayCommand UpdateSubjectCmd { get; private set; }
+        //public RelayCommand FindSubjectCmd { get; private set; }
 
         public RelayCommand OkActionCmd { get; private set; }
         public RelayCommand CancelActionCmd { get; private set; }

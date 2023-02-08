@@ -23,6 +23,7 @@ namespace Group_IS_21zp
             DataContext = new MainWinViewModel();
             MessengerStatic.ActivatedStudentEditMode += SetFocusStudentEditMode;
             MessengerStatic.ActivatedTeacherEditMode += SetFocusTeacherEditMode;
+            MessengerStatic.FindWindowShowed += ShowSeachWin;
 
         }
 
@@ -48,13 +49,22 @@ namespace Group_IS_21zp
         }
 
 
-        private void ShowAbout(object sender, System.Windows.Input.KeyEventArgs e)
+        private void ProcessKeys(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.F1)
             {
                 AboutWindow aboutWin = new AboutWindow();
                 aboutWin.Show();
+            } else if (Keyboard.Modifiers == ModifierKeys.Control && Keyboard.IsKeyDown(Key.F))
+            {
+                ShowSeachWin(null);
             }
+        }
+
+        private void ShowSeachWin(object obj)
+        {
+            SearchWindow findWin = new SearchWindow();
+            findWin.Show();
         }
 
         public void CheckIfStorageExists()

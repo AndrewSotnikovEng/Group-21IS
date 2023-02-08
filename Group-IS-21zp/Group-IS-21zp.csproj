@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\SearchResult.cs" />
+    <Compile Include="Model\SearchType.cs" />
     <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="Repository\ExcelItem.cs" />
     <Compile Include="Repository\IExcelRepository.cs" />
@@ -71,8 +73,12 @@
     <Compile Include="Repository\TeacherRepository.cs" />
     <Compile Include="ViewModel\MainWinViewModel.cs" />
     <Compile Include="ViewModel\MessengerStatic.cs" />
+    <Compile Include="ViewModel\SearchWinViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\AboutWindow.xaml.cs" />
+    <Compile Include="View\SearchWindow.xaml.cs">
+      <DependentUpon>SearchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -115,6 +121,10 @@
     <Page Include="View\AboutWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SearchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
