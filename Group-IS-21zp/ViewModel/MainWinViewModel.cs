@@ -225,6 +225,11 @@ namespace Group_IS_21zp.ViewModels
         private void ProcessFindElementRequest(object obj)
         {
             List<SearchResult> results = new List<SearchResult>();
+            if (String.IsNullOrEmpty(obj.ToString()))
+            {
+                MessengerStatic.NotifyFindElementsResponding(results);
+                return;
+            }
             //looking for students
             //Console.WriteLine("Students: \n----------------------");
             foreach (Student item in Students)
