@@ -24,6 +24,7 @@ namespace Group_IS_21zp.View
         {
             InitializeComponent();
             DataContext = new SearchWinViewModel();
+            SearchTextBox.Focus();
         }
 
         private void ConfirmInput(object sender, System.Windows.Input.KeyEventArgs e)

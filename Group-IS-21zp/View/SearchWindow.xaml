@@ -41,7 +41,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding FullName}" Margin="0,0,0,10"/>
+                            <TextBlock Background="{Binding BackgroundColor}" Width="550" Text="{Binding FullName}" Margin="0,0,0,10"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
