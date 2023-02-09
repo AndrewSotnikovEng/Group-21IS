@@ -75,6 +75,7 @@
     <Compile Include="ViewModel\MessengerStatic.cs" />
     <Compile Include="ViewModel\SearchWinViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\HelpWindow.xaml..cs" />
     <Compile Include="View\AboutWindow.xaml.cs" />
     <Compile Include="View\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
@@ -118,6 +119,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\HelpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AboutWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

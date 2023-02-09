@@ -55,6 +55,11 @@ namespace Group_IS_21zp
             {
                 AboutWindow aboutWin = new AboutWindow();
                 aboutWin.Show();
+            } else if (e.Key == Key.F11)
+            {
+                HelpWindow helpWin = new HelpWindow();
+                helpWin.Show();
+
             } else if (Keyboard.Modifiers == ModifierKeys.Control && Keyboard.IsKeyDown(Key.F))
             {
                 ShowSeachWin(null);

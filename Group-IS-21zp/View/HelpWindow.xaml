@@ -1,0 +1,74 @@
+﻿<Window x:Class="Group_IS_21zp.View.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group_IS_21zp.View"
+        mc:Ignorable="d"
+        Title="Help" Height="313.213" Width="870.562" Background="#272822"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Quit">
+    <Window.Resources>
+        <Style x:Key="TextBlock" >
+            <Setter Property="TextBlock.FontSize" Value="14"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextBlock.Foreground" Value="#f8f8f2"/>
+        </Style>
+        <Style x:Key="TableBlockRow" >
+            <Setter Property="TextBlock.FontSize" Value="14"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextBlock.Foreground" Value="#f8f8f2"/>
+            <Setter Property="TextBlock.Margin" Value="0,5,0,5"/>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,11">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="772*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Height="266" VerticalAlignment="Top">
+            <TextBlock Style="{StaticResource TextBlock}" Width="600" FontSize="24" Margin="62,20,0,0"> Гарачі клавіші:</TextBlock>
+            <Grid Width="600" HorizontalAlignment="Left"  Margin="62,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <!--row-->
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="0" Grid.Column="0"> F1</TextBlock>
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="0" Grid.Column="1">Вікно інформації</TextBlock>
+                <!--row--> 
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="1" Grid.Column="0">F11</TextBlock>
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="1" Grid.Column="1">Вікно "Гарчячих клавіш"</TextBlock>
+                <!--row--> 
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="2" Grid.Column="0">Crtl + F</TextBlock>
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="2" Grid.Column="1">Вікно пошуку</TextBlock>
+                <!--row--> 
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="3" Grid.Column="0">Enter</TextBlock>
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="3" Grid.Column="1">Підтвердження вводу у режимі додавання/редагування</TextBlock>
+                <!--row--> 
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="4" Grid.Column="0">Esc</TextBlock>
+                <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="4" Grid.Column="1">Закрити поточне вікно (окрім головного)</TextBlock>
+
+
+            </Grid>
+            <!--<StackPanel Height="143" HorizontalAlignment="Left" Width="821" Margin="42,20,0,0">
+                <TextBlock Style="{StaticResource TextBlock}" Margin="20,20,0,0" Height="118" Width="772">F1 - Вікно з інформацією <LineBreak/>
+                - <LineBreak/>
+                Ctrl + F - Пошук <LineBreak/>
+                <LineBreak/>
+                Esc -  </TextBlock>
+            </StackPanel>-->
+        </StackPanel>
+
+    </Grid>
+</Window>
