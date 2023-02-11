@@ -11,7 +11,6 @@
     <Window.Resources>
         <Style x:Key="TabCommon" >
             <Setter Property="TabItem.Background" Value="#272822"/>
-            <!--<Setter Property="TabItem.Width" Value="100px"/>-->
         </Style>
         <Style x:Key="Title" >
             <Setter Property="TextBlock.FontSize" Value="24"/>
@@ -47,6 +46,5 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-
     </Grid>
 </Window>

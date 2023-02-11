@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1000" Background="#272822"
         WindowStartupLocation="CenterScreen"
-        KeyDown="ProcessKeys"
-        >
+        KeyDown="ProcessKeys"  >
     <Window.Resources>
         <Style x:Key="TabCommon" >
             <Setter Property="TabItem.Background" Value="#272822"/>
@@ -42,7 +41,7 @@
                     <!-- LIST VIEW -->
                     <TextBlock Style="{StaticResource Title}">Студенти</TextBlock>
                     <StackPanel Orientation="Horizontal">
-                        
+
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
                         <ListBox HorizontalAlignment="Left" SelectionMode="Extended" Width="737" Height="535" Margin="30,0"
@@ -69,7 +68,7 @@
                 <StackPanel Margin="40px" Visibility="{Binding EditStudentView}">
                     <!-- EDIT VIEW -->
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Прізвище"/>
-                    <TextBox x:Name="StudentLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="StudentLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="StudentLastName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -79,7 +78,7 @@
                         </TextBox.Text>
                     </TextBox>
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Ім'я"/>
-                    <TextBox x:Name="StudentFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="StudentFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="StudentFirstName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -89,7 +88,7 @@
                         </TextBox.Text>
                     </TextBox>
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="По-батькові"/>
-                    <TextBox x:Name="StudentPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="StudentPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="StudentPatronymicName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -138,7 +137,7 @@
                 <StackPanel Margin="40px" Visibility="{Binding EditTeacherView}">
                     <!-- TEACHER EDIT VIEW -->
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Прізвище"/>
-                    <TextBox x:Name="TeacherLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="TeacherLastNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="TeacherLastName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -148,7 +147,7 @@
                         </TextBox.Text>
                     </TextBox>
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Ім'я"/>
-                    <TextBox x:Name="TeacherFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="TeacherFirstNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="TeacherFirstName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -158,7 +157,7 @@
                         </TextBox.Text>
                     </TextBox>
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="По-батькові"/>
-                    <TextBox x:Name="TeacherPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="TeacherPatronymicNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="TeacherPatronymicName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -174,8 +173,8 @@
                 </StackPanel>
             </StackPanel>
         </TabItem>
-        
-        
+
+
         <TabItem Header="Subjects" Width="100" Height="30">
             <StackPanel Orientation="Vertical" >
                 <StackPanel Visibility="{Binding SubjectListView}">
@@ -206,7 +205,7 @@
                 <StackPanel Margin="40px" Visibility="{Binding EditSubjectView}">
                     <!-- SUBJECT EDIT VIEW -->
                     <Label Width="600" Height="28" Margin="30,10,0,0" Foreground="AntiqueWhite" HorizontalAlignment="Left" Content="Назва предмету"/>
-                    <TextBox x:Name="SubjectNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmAction">
+                    <TextBox x:Name="SubjectNameTextBox" Width="600" Height="20px" Background="White" Margin="30,0,0,0" HorizontalAlignment="Left" KeyDown="ConfirmInput">
                         <TextBox.Text>
                             <Binding Path="SubjectName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -221,12 +220,6 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            
         </TabItem>
     </TabControl>
-
-
-
-
-
 </Window>

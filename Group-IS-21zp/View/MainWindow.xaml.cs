@@ -1,10 +1,5 @@
-﻿using Microsoft.Win32;
-using System;
-using System.ComponentModel;
-using System.Windows;
-using Group_IS_21zp;
+﻿using System.Windows;
 using Group_IS_21zp.ViewModels;
-using Group_IS_21zp.Repository;
 using System.Windows.Input;
 using Group_IS_21zp.ViewModel;
 using Group_IS_21zp.View;
@@ -37,7 +32,7 @@ namespace Group_IS_21zp
             TeacherLastNameTextBox.Focus();
         }
 
-        private void ConfirmAction(object sender, System.Windows.Input.KeyEventArgs e)
+        private void ConfirmInput(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {

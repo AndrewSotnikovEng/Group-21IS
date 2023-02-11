@@ -20,8 +20,6 @@
             <Setter Property="TextBlock.Foreground" Value="#f8f8f2"/>
             <Setter Property="TextBlock.Margin" Value="0,5,0,5"/>
         </Style>
-
-
     </Window.Resources>
 
     <Grid Margin="0,0,0,11">
@@ -46,29 +44,19 @@
                 <!--row-->
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="0" Grid.Column="0"> F1</TextBlock>
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="0" Grid.Column="1">Вікно інформації</TextBlock>
-                <!--row--> 
+                <!--row-->
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="1" Grid.Column="0">F11</TextBlock>
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="1" Grid.Column="1">Вікно "Гарчячих клавіш"</TextBlock>
-                <!--row--> 
+                <!--row-->
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="2" Grid.Column="0">Crtl + F</TextBlock>
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="2" Grid.Column="1">Вікно пошуку</TextBlock>
-                <!--row--> 
+                <!--row-->
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="3" Grid.Column="0">Enter</TextBlock>
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="3" Grid.Column="1">Підтвердження вводу у режимі додавання/редагування</TextBlock>
-                <!--row--> 
+                <!--row-->
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="4" Grid.Column="0">Esc</TextBlock>
                 <TextBlock Style="{StaticResource TableBlockRow}" Grid.Row="4" Grid.Column="1">Закрити поточне вікно (окрім головного)</TextBlock>
-
-
             </Grid>
-            <!--<StackPanel Height="143" HorizontalAlignment="Left" Width="821" Margin="42,20,0,0">
-                <TextBlock Style="{StaticResource TextBlock}" Margin="20,20,0,0" Height="118" Width="772">F1 - Вікно з інформацією <LineBreak/>
-                - <LineBreak/>
-                Ctrl + F - Пошук <LineBreak/>
-                <LineBreak/>
-                Esc -  </TextBlock>
-            </StackPanel>-->
         </StackPanel>
-
     </Grid>
 </Window>

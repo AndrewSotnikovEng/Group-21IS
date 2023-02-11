@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Group_IS_21zp.Model
+﻿namespace Group_IS_21zp.Model
 {
     class SearchResult
     {
@@ -25,8 +19,6 @@ namespace Group_IS_21zp.Model
                 }
             }
         }
-
-
 
         public SearchResult(long id, string fullName, SearchType type)
         {
