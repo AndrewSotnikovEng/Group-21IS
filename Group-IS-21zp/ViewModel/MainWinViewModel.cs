@@ -10,9 +10,7 @@ using Group_IS_21zp.Commands;
 namespace Group_IS_21zp.ViewModels
 {
     public class MainWinViewModel : ViewModelBase, IDataErrorInfo
-
     {
-
         StudentRepository studentRepo;
         TeacherRepository teacherRepo;
         SubjectRepository subjectRepo;
@@ -199,8 +197,6 @@ namespace Group_IS_21zp.ViewModels
             AddTeacherCmd = new RelayCommand(o => { AddTeacher(); }, AddTeacherCanExecute);
             DeleteTeacherCmd = new RelayCommand(o => { DeleteTeacher(); }, DeleteTeacherCanExecute);
             UpdateTeacherCmd = new RelayCommand(o => { UpdateTeacher(); }, UpdateTeacherCanExecute);
-            //FindTeacherCmd = new RelayCommand(o => { FindElement(); }, FindElementCanExecute);
-
 
             OkActionCmd = new RelayCommand(o => { OkAction(); }, OkActionCanExecute);
             CancelActionCmd = new RelayCommand(o => { CancelAction(); }, (arg) => true);
@@ -557,9 +553,6 @@ namespace Group_IS_21zp.ViewModels
             StudentFirstName = SelectedStudentItem.FirstName;
             StudentLastName = SelectedStudentItem.LastName;
             StudentPatronymicName = SelectedStudentItem.PatronymicName;
-
-            //Student modifiedStudent = new Student(SelectedStudentItem.Id, StudentFirstName,
-            //    StudentPatronymicName, StudentLastName);
         }
 
         private void UpdateTeacher()
@@ -616,13 +609,10 @@ namespace Group_IS_21zp.ViewModels
         public RelayCommand AddTeacherCmd { get; private set; }
         public RelayCommand DeleteTeacherCmd { get; private set; }
         public RelayCommand UpdateTeacherCmd { get; private set; }
-        //public RelayCommand FindTeacherCmd { get; private set; }
-
 
         public RelayCommand AddSubjectCmd { get; private set; }
         public RelayCommand DeleteSubjectCmd { get; private set; }
         public RelayCommand UpdateSubjectCmd { get; private set; }
-        //public RelayCommand FindSubjectCmd { get; private set; }
 
         public RelayCommand OkActionCmd { get; private set; }
         public RelayCommand CancelActionCmd { get; private set; }
@@ -646,7 +636,6 @@ namespace Group_IS_21zp.ViewModels
                                 error = "Please check First name";
                                 StudentFirstNameValidationPassed = false;
                             }
-
                         }
                         break;
                     case "StudentLastName":
@@ -720,8 +709,5 @@ namespace Group_IS_21zp.ViewModels
                 return error;
             }
         }
-
-
     }
-
 }
