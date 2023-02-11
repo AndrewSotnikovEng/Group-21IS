@@ -65,7 +65,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\SearchResult.cs" />
     <Compile Include="Model\SearchType.cs" />
-    <Compile Include="RelayCommand\RelayCommand.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Repository\ExcelItem.cs" />
     <Compile Include="Repository\IExcelRepository.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
