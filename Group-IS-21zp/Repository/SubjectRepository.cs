@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Group_IS_21zp.Repository
 {
@@ -54,7 +52,6 @@ namespace Group_IS_21zp.Repository
                 }
             }
             return false;
-
         }
 
         public bool UpdateItem(IExcelItem item)
