@@ -10,7 +10,7 @@ namespace Group_IS_21zp.ViewModel
         public SearchWinViewModel()
         {
             MessengerStatic.SearchElementsResponded += UpdateSearchResults;
-            Results.Add(new SearchResult(0, "Bill Gates", SearchType.StudentElementType));
+            //Results.Add(new SearchResult(0, "Bill Gates", SearchType.StudentElementType));
         }
 
         public ObservableCollection<SearchResult> _results { get; set; }  = new ObservableCollection<SearchResult>();
